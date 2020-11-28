@@ -1,6 +1,18 @@
 # greate_places
 
-A new Flutter application.
+- location with gps
+- google maps
+- static maps preview
+- access camera
+- access gallery
+- sqflite
+- reverse geoencoding to get address
+
+## note API keys has been deleted
+
+![Alt text](screenshots/1.png?raw=true "Home")
+![Alt text](screenshots/2.png?raw=true "Add place")
+![Alt text](screenshots/3.png?raw=true "place details")
 
 ## Getting Started
 
