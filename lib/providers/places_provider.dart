@@ -54,7 +54,13 @@ class PlacesProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  PlaceModel findById(String id){
+  PlaceModel findById(String id) {
     return _items.firstWhere((element) => element.id == id);
-}
+  }
+
+  void deletePlace(String id){
+    _items.removeWhere((element) => element.id == id);
+    notifyListeners();
+    DBHelper.deletePlace(id);
+  }
 }

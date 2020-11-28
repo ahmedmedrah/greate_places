@@ -27,4 +27,10 @@ class DBHelper {
     final db = await DBHelper.database();
     return db.query(table);
   }
+
+  ///delete a place using its id
+  static Future<void> deletePlace(String id) async{
+    final db = await DBHelper.database();
+    await db.delete('places',where: 'id = \"$id\"');
+  }
 }
