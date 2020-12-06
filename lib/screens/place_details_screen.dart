@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:greate_places/helpers/map_utils.dart';
 import 'package:greate_places/providers/places_provider.dart';
 import 'package:greate_places/screens/map_screen.dart';
 import 'package:provider/provider.dart';
 
 class PlaceDetailsScreen extends StatelessWidget {
   static const String routeName = '/place-details-screen';
+
   @override
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context).settings.arguments;
@@ -17,7 +19,7 @@ class PlaceDetailsScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 250,
+            height: 350,
             width: double.infinity,
             child: Image.file(
               selectedPlace.image,
@@ -40,12 +42,8 @@ class PlaceDetailsScreen extends StatelessWidget {
             child: Text('View on map'),
             textColor: Theme.of(context).primaryColor,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                fullscreenDialog: true,
-                builder: (ctx) => MapScreen(
-                  initialLocation: selectedPlace.location,
-                ),
-              ));
+              MapUtils.openMap(selectedPlace.location.latidute,
+                  selectedPlace.location.longitude);
             },
           ),
         ],
